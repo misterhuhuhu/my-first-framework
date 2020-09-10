@@ -1,0 +1,31 @@
+server:
+  port: 80
+
+eureka:
+  instance:
+    hostname: localhost
+    lease-renewal-interval-in-seconds: 1
+    lease-expiration-duration-in-seconds: 2
+  client:
+    service-url:
+      defaultZone: http://localhost:9005/eureka/,http://localhost:9000/eureka
+    registry-fetch-interval-seconds: 1
+
+#指定服务的名称
+spring:
+  application:
+    name: zuul
+
+
+# 查看zuul的监控界面（开发时，配置为*，上线，不要配置）
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+zuul:
+  ignored-services: "eureka" #基于服务名忽略服务,"*"代表全忽略,除了手动配置的
+#  ignored-patterns: /**/consumer/**
+#  ignore-local-service: false #默认为true,忽略zool
+

@@ -1,0 +1,26 @@
+# 指定Eureka服务地址
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone: http://localhost:9005/eureka,http://localhost:9000/eureka
+
+#指定服务的名称
+#config模块会随其他服务调用而更新配置
+spring:
+  application:
+    name: CONFIG
+  cloud:
+    config:
+      server:
+        git:
+          basedir: D:\basedir    # 本地仓库的地址
+          username: 975877475@qq.com    #  远程仓库用户名
+          password: y2979587712   #   远程仓库密码
+          uri: http://gitlab.e-masspick.com/huhaoning/my-first-framework-config-repo.git       # 远程仓库地址
+
+server:
+  port: 10000
+
+
