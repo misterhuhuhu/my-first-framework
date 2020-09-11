@@ -32,7 +32,7 @@ HELP.md
 /02-eureka-9005/target/
 /03-config/target/
 /04-provider/target/
-/05-node-A/target
+/05-node-A/targetgit branch
 /06-node-B/target/
 /08-consumer/target
 /09-zuul/target
