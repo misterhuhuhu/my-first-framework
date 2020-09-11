@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @FeignClient(value = "consumer")
 public interface ChainClient {
     /**
-     * 测试链路追踪
+     * 测试链路追踪.
      * @return test
      */
     @GetMapping("/chain")

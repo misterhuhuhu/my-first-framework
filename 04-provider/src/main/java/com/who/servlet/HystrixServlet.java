@@ -6,7 +6,7 @@ import javax.servlet.annotation.WebServlet;
 
 
 /**
- * 显示HystrixDashboard
+ * 显示HystrixDashboard.
  * @author 胡昊宁
  * @date 2020/9/9 23:01
  */

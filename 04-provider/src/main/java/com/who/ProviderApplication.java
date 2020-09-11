@@ -23,12 +23,13 @@ import org.springframework.web.client.RestTemplate;
 @EnableFeignClients
 @EnableCircuitBreaker
 @EnableHystrixDashboard
-@ServletComponentScan({"com.who.servlet","com.who.filter"})
+@ServletComponentScan({"com.who.servlet", "com.who.filter"})
 @EnableBinding(StreamClient.class)
 public class ProviderApplication {
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
         SpringApplication.run(ProviderApplication.class, args);
     }
+
     @Bean
     @LoadBalanced
     public RestTemplate restTemplate() {

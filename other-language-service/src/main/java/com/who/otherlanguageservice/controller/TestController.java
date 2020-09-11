@@ -9,11 +9,14 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 public class TestController {
-
-
-    @GetMapping("/list")
-    public String list(){
-        return "other-service: list";
+    /**
+     * 其他服务.
+     *
+     * @return otherService
+     */
+    @GetMapping("/otherService")
+    public String list() {
+        return "otherService";
     }
 
 }
