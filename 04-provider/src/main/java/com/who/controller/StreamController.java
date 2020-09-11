@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
 
 /**
+ * 测试rabbitMQ
+ *
  * @author 胡昊宁
  * @date 2020/9/9 23:01
  */

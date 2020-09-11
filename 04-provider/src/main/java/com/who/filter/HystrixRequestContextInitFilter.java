@@ -13,6 +13,7 @@ import java.io.IOException;
 
 
 /**
+ * Hystrix请求缓存.
  * @author 胡昊宁
  * @date 2020/9/10 8:43
  */

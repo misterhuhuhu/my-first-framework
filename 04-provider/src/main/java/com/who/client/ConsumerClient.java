@@ -15,7 +15,8 @@ import org.springframework.web.bind.annotation.RequestParam;
  * FeignClient 自动有负载均衡.
  * 用于测试Feign
  *
- * @author MR.HU
+ * @author 胡昊宁
+ * @date 2020/9/9 23:01
  */
 @FeignClient(value = "consumer", fallbackFactory = ConsumerClientFallBackFactory.class)
 public interface ConsumerClient {

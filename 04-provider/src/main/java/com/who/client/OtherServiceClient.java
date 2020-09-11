@@ -6,7 +6,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 /**
  * 测试接入第三方服务.
  *
- * @author MR.HU
+ * @author 胡昊宁
+ * @date 2020/9/9 23:01
  */
 @FeignClient("OTHER-SERVICE")
 public interface OtherServiceClient {

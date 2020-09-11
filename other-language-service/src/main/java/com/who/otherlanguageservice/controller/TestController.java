@@ -4,6 +4,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
+ * 这个服务不进入eureka.
+ *
  * @author 胡昊宁
  * @date 2020/9/10 8:43
  */
