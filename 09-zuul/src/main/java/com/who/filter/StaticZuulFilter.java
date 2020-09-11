@@ -24,7 +24,8 @@ public final class StaticZuulFilter extends ZuulFilter {
 
     @Override
     public int filterOrder() {
-        return FilterConstants.PRE_DECORATION_FILTER_ORDER - 1;
+        final int filterOrder = -1;
+        return FilterConstants.PRE_DECORATION_FILTER_ORDER + filterOrder;
     }
 
     @Override
