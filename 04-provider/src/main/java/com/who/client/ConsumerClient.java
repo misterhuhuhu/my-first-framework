@@ -42,7 +42,7 @@ public interface ConsumerClient {
      * @param id 任意数字
      * @return 带有数字的字符串
      */
-    @GetMapping("/search/{id}")
+    @GetMapping("/consumer/{id}")
     Customer findById(@PathVariable(value = "id") Integer id);
 
     /**
@@ -52,7 +52,7 @@ public interface ConsumerClient {
      * @param name 任意非符号字符串
      * @return null
      */
-    @GetMapping("/getCustomer")
+    @GetMapping("/consumer")
     Customer getCustomer(@RequestParam(value = "id") Integer id,
                          @RequestParam(value = "name") String name);
 
