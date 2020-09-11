@@ -26,3 +26,15 @@ HELP.md
  
 ### VS Code ###
 .vscode/
+
+
+/01-eureka-9000/target/
+/02-eureka-9005/target/
+/03-config/target/
+/04-provider/target/
+/05-node-A/target
+/06-node-B/target/
+/08-consumer/target
+/09-zuul/target
+/10-sidecar/target
+/other-language-service/target
