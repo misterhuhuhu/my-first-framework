@@ -39,7 +39,7 @@ public class ProviderController {
      *
      * @return 被使用的consumer服务的端口号
      */
-    @GetMapping("/portTest")
+    @GetMapping("/port")
     public String port() {
         return restTemplate.getForObject("http://consumer/port", String.class);
     }
@@ -51,7 +51,7 @@ public class ProviderController {
      * @param id 任意数字
      * @return 返回模拟的customer
      */
-    @GetMapping("/getCustomer/{id}")
+    @GetMapping("/customer/{id}")
     public Customer findById(@PathVariable final Integer id) {
         return consumerClient.findById(id);
     }
@@ -63,7 +63,7 @@ public class ProviderController {
      * @param name 非符号字符串
      * @return 返回模拟的customer
      */
-    @GetMapping("/getCustomer")
+    @GetMapping("/customer")
     public Customer getCustomer(@RequestParam final Integer id,
                                 @RequestParam final String name) {
         return consumerClient.getCustomer(id, name);
@@ -75,7 +75,7 @@ public class ProviderController {
      * @param customer 模拟使用post传值的customer
      * @return 输入的customer
      */
-    @GetMapping("/save")
+    @GetMapping("/customer")
     public Customer save(final Customer customer) {
         return consumerClient.save(customer);
     }
@@ -113,7 +113,7 @@ public class ProviderController {
      * @param id 任意数字
      * @return 模拟数据
      */
-    @GetMapping("/useCache/{id}")
+    @GetMapping("/cache/{id}")
     public Customer hystrixCache(@RequestParam(value = "id") final Integer id) {
 
         log.info(customerService.findById(id).toString());

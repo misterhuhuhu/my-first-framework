@@ -37,7 +37,7 @@ public final class ConsumerController {
      * @param id 任意数字
      * @return 返回模拟的customer
      */
-    @GetMapping("/getCustomer/{id}")
+    @GetMapping("/customer/{id}")
     public Customer findById(@PathVariable final Integer id) {
         return new Customer(id,
                 "张三  " + "port:" + port,
@@ -51,7 +51,7 @@ public final class ConsumerController {
      * @param name 非符号字符串
      * @return 返回模拟的customer
      */
-    @GetMapping("/getCustomer")
+    @GetMapping("/customer")
     public Customer getCustomer(@RequestParam final Integer id,
                                 @RequestParam final String name) {
         final int age = 23;
@@ -64,7 +64,7 @@ public final class ConsumerController {
      * @param customer 模拟使用post传值的customer
      * @return 模拟使用post传值的customer
      */
-    @PostMapping("/save")
+    @PostMapping("/customer")
     public Customer save(@RequestBody final Customer customer) {
         return customer;
     }
