@@ -10,18 +10,19 @@ public final class Customer {
     public Customer() {
     }
 
-    public Customer(Integer id, String name) {
+    public Customer(final Integer id, final String name) {
         this.id = id;
         this.name = name;
     }
 
-    public Customer(Integer id, String name, Integer age) {
+    public Customer(final Integer id, final String name, final Integer age) {
         this.id = id;
         this.name = name;
         this.age = age;
     }
 
     private Integer id;
+
 
     private String name;
 
@@ -32,7 +33,7 @@ public final class Customer {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(final Integer id) {
         this.id = id;
     }
 
@@ -40,7 +41,7 @@ public final class Customer {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(final String name) {
         this.name = name;
     }
 
@@ -48,17 +49,17 @@ public final class Customer {
         return age;
     }
 
-    public void setAge(Integer age) {
+    public void setAge(final Integer age) {
         this.age = age;
     }
 
     @Override
     public String toString() {
-        return "Customer{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", age=" + age +
-                '}';
+        return "Customer{"
+                + "id=" + id
+                + ", name='" + name + '\''
+                + ", age=" + age
+                + '}';
     }
 
 }

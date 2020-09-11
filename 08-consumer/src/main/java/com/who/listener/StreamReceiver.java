@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * 绑定监听接口.
+ *
  * @author 胡昊宁
  * @date 2020/9/10 8:43
  */
@@ -19,10 +20,11 @@ public class StreamReceiver {
 
     /**
      * 测试mq.
+     *
      * @param msg 消息
      */
     @StreamListener("mLine")
-    public void msg(final Object msg)  {
+    public void msg(final Object msg) {
         log.info("接收到消息： " + msg);
     }
 }

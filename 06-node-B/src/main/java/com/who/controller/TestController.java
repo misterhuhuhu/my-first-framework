@@ -20,6 +20,7 @@ public final class TestController {
 
     /**
      * 测试zipkin链路追踪.
+     *
      * @return test chain
      */
     @GetMapping("/chain")
