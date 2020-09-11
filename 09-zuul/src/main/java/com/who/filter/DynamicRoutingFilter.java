@@ -2,7 +2,6 @@ package com.who.filter;
 
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
-import com.netflix.zuul.exception.ZuulException;
 import org.springframework.cloud.netflix.zuul.filters.support.FilterConstants;
 import org.springframework.stereotype.Component;
 
@@ -12,12 +11,13 @@ import static org.springframework.cloud.netflix.zuul.filters.support.FilterConst
 
 
 /**
- * 动态路由
+ * 动态路由.
+ *
  * @author 胡昊宁
  * @date 2020/9/10 8:43
  */
 @Component
-public class DynamicRoutingFilter extends ZuulFilter {
+public final class DynamicRoutingFilter extends ZuulFilter {
     @Override
     public String filterType() {
         return FilterConstants.PRE_TYPE;
@@ -25,7 +25,8 @@ public class DynamicRoutingFilter extends ZuulFilter {
 
     @Override
     public int filterOrder() {
-        return PRE_DECORATION_FILTER_ORDER + 2;
+        final int filterOrder = 2;
+        return PRE_DECORATION_FILTER_ORDER + filterOrder;
     }
 
     @Override
@@ -35,7 +36,7 @@ public class DynamicRoutingFilter extends ZuulFilter {
 
 
     @Override
-    public Object run()  {
+    public Object run() {
         //1. 获取Request对象
         RequestContext context = RequestContext.getCurrentContext();
         HttpServletRequest request = context.getRequest();
@@ -43,21 +44,21 @@ public class DynamicRoutingFilter extends ZuulFilter {
         //2. 获取参数，redisKey
         String redisKey = request.getParameter("redisKey");
 
-        final var provider="provider";
-        final var search="provider";
+        final var provider = "provider";
+        final var search = "provider";
         //3. 直接判断
         //输入访问http://localhost/v1/provider?redisKey=search
         //实际访问http://localhost/v2/provider/robbin
-        if(redisKey != null && provider.equalsIgnoreCase(redisKey)){
-            context.put(FilterConstants.SERVICE_ID_KEY,"provider-v2");
-            context.put(FilterConstants.REQUEST_URI_KEY,"/robbin");
+        if (redisKey != null && provider.equalsIgnoreCase(redisKey)) {
+            context.put(FilterConstants.SERVICE_ID_KEY, "provider-v2");
+            context.put(FilterConstants.REQUEST_URI_KEY, "/robbin");
         }
         //输入访问http://localhost/v1/provider/version?redisKey=search
         //实际访问http://localhost/consumer/search/1
-        if(redisKey != null && search.equalsIgnoreCase(redisKey)){
+        if (redisKey != null && search.equalsIgnoreCase(redisKey)) {
 
-            context.put(FilterConstants.SERVICE_ID_KEY,"consumer");
-            context.put(FilterConstants.REQUEST_URI_KEY,"/search/1");
+            context.put(FilterConstants.SERVICE_ID_KEY, "consumer");
+            context.put(FilterConstants.REQUEST_URI_KEY, "/search/1");
         }
 
         return null;

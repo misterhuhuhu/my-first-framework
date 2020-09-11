@@ -15,6 +15,8 @@ import org.springframework.web.client.RestTemplate;
 
 
 /**
+ * 这个是提供者服务,分别是provider-v1和provider-v2.
+ *
  * @author 胡昊宁
  * @date 2020/9/9 23:01
  */
@@ -23,12 +25,18 @@ import org.springframework.web.client.RestTemplate;
 @EnableFeignClients
 @EnableCircuitBreaker
 @EnableHystrixDashboard
-@ServletComponentScan({"com.who.servlet","com.who.filter"})
+@ServletComponentScan({"com.who.servlet", "com.who.filter"})
 @EnableBinding(StreamClient.class)
 public class ProviderApplication {
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
         SpringApplication.run(ProviderApplication.class, args);
     }
+
+    /**
+     * RestTemplate用于robbin负载均衡.
+     *
+     * @return RestTemplate
+     */
     @Bean
     @LoadBalanced
     public RestTemplate restTemplate() {

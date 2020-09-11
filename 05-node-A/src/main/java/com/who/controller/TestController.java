@@ -1,7 +1,6 @@
 package com.who.controller;
 
 import com.who.client.ChainClient;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,6 +17,11 @@ public class TestController {
 
     @Resource
     private ChainClient chainClient;
+
+    /**
+     * 测试zipkin链路追踪.
+     * @return test chain
+     */
     @GetMapping("/chain")
     public String list() {
 

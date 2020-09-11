@@ -19,17 +19,19 @@ import org.springframework.context.annotation.Bean;
 @EnableZuulProxy
 public class ZuulApplication {
 
-    public static void main(String[] args) {
-        SpringApplication.run(ZuulApplication.class,args);
+    public static void main(final String[] args) {
+        SpringApplication.run(ZuulApplication.class, args);
     }
 
 
+    /**
+     * 以访问url匹配服务名,例:provider-v1映射为 /v1/provider.
+     * @return mapper
+     */
     @Bean
     public PatternServiceRouteMapper serviceRouteMapper() {
         return new PatternServiceRouteMapper(
                 "(?<name>^.+)-(?<version>v.+$)",
                 "${version}/${name}");
-        // provider-v1
-        //映射为 /v1/provider
     }
 }

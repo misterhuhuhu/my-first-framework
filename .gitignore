@@ -1,0 +1,40 @@
+HELP.md
+/target/
+/*/target/
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+ 
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+ 
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+/build/
+ 
+### VS Code ###
+.vscode/
+
+
+/01-eureka-9000/target/
+/02-eureka-9005/target/
+/03-config/target/
+/04-provider/target/
+/05-node-A/targetgit branch
+/06-node-B/target/
+/08-consumer/target
+/09-zuul/target
+/10-sidecar/target
+/other-language-service/target

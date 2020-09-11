@@ -10,19 +10,30 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
 
 /**
+ * 测试rabbitMQ
+ *
  * @author 胡昊宁
  * @date 2020/9/9 23:01
  */
 @RestController
-public class StreamController {
+public final class StreamController {
 
     @Resource
     private StreamClient streamClient;
 
 
+    /**
+     * 测试rabbitmq.
+     *
+     * @return Customer
+     */
     @GetMapping("/send")
-    public String send(){
-        streamClient.output().send(MessageBuilder.withPayload(new Customer(1,"张三",23)).build());
+    public String send() {
+        final int id = 1;
+        final int age = 23;
+        streamClient.output()
+                .send(MessageBuilder
+                        .withPayload(new Customer(id, "张三", age)).build());
         return "消息发送成功！！";
     }
 }
